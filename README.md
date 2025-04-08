@@ -1,3 +1,2 @@
 Welcome to my profile!
-This is for team 9575 code relating to FRC. 
-Also my own personal projects.
+I do alot of web dev and robot code here. 
