@@ -11,7 +11,7 @@ jobs:
     steps:
       - uses: actions/checkout@v3
       - name: Update WakaTime stats
-        uses: simonwukasch/waka-readme-action@v2
+        uses: fatuma-tahalil/famat@master
         with:
           wakatime_api_key: ${{ secrets.WAKATIME_API_KEY }}
           commit_message: '📈 Update WakaTime stats'
