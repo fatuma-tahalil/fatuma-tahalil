@@ -1,22 +1,17 @@
-name: Waka Readme
+name: Update WakaTime Stats
 
 on:
   schedule:
-    # Runs at 12am IST
-    - cron: '30 18 * * *'
+    - cron: '0 1 * * *'
   workflow_dispatch:
+
 jobs:
   update-readme:
-    name: Update Readme with Metrics
-    runs-on: windows-latest
+    runs-on: ubuntu-latest
     steps:
-      - uses: anmol098/waka-readme-stats@master
+      - uses: actions/checkout@v3
+      - name: Update WakaTime stats
+        uses: simonwukasch/waka-readme-action@v2
         with:
-          WAKATIME_API_KEY: ${{ secrets.WAKATIME_API_KEY }}
-          GH_TOKEN: ${{ secrets.GH_TOKEN }}
-          SHOW_PROJECTS: true
-          SHOW_LANGUAGE: true
-          SHOW_TIME: true
-          SHOW_EDITORS: false
-          SHOW_OS: false
-          COMMIT_MESSAGE: "📈 Update Wakatime stats"
+          wakatime_api_key: ${{ secrets.WAKATIME_API_KEY }}
+          commit_message: '📈 Update WakaTime stats'
