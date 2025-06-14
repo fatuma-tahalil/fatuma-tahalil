@@ -9,7 +9,7 @@ jobs:
     name: Update Readme with Metrics
     runs-on: windows-latest
     steps:
-      - uses: fatuma-tahalil/famat@master
+      - uses: fatuma-tahalil/famat@main
         with:
           WAKATIME_API_KEY: ${{ secrets.WAKATIME_API_KEY }}
           GH_TOKEN: ${{ secrets.GH_TOKEN }}
