@@ -1,22 +1,38 @@
-
-
-name: Test Go Install
+name: Update README
 
 on:
+  schedule:
+    - cron: "0 */1 * * *" # hourly updates
   workflow_dispatch:
 
 jobs:
-  test-install:
-  
+  markscribe:
     runs-on: ubuntu-latest
+    
     steps:
       - uses: actions/checkout@v3
 
-      - name: Configure git to use public git protocol
-        run: git config --global url."git://github.com/".insteadOf "https://github.com/"
-
+      - name: Clear Go module cache
+        run: go clean -modcache
+        
       - uses: actions-go/go-install@main
+        id: install
         with:
           module: "github.com/fatuma-tahalil/markscribe@main"
 
-      - run: markscribe --version
+      - name: generate readme
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          HACKATIME_API_KEY: ${{ secrets.WAKATIME_API_KEY }}
+          HACKATIME_URL: ${{ secrets.WAKATIME_URL }}
+        run: ${{ steps.install.outputs.install-path }} -write README.md templates/README.md.tpl
+
+      - uses: stefanzweifel/git-auto-commit-action@v4
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        with:
+          commit_message: Update generated README
+          branch: main
+          commit_user_name: readme-scribe 🤖
+          commit_user_email: actions@github.com
+          commit_author: readme-scribe 🤖 <actions@github.com>
