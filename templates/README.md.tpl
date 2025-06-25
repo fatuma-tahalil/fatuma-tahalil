@@ -3,8 +3,8 @@
 I forgot how to code :b
 
 
-<img src="https://github-readme-stats.hackclub.dev/api/wakatime?username=3788&api_domain=hackatime.hackclub.com&theme=dracula&custom_title=Hackatime+Stats&layout=compact&cache_seconds=0&langs_count=8">
-
+  <img src="https://github-readme-stats.hackclub.dev/api/wakatime?username=3788&api_domain=hackatime.hackclub.com&theme=dracula&custom_title=Hackatime+Stats&layout=compact&cache_seconds=0&langs_count=8">
+  <img src="https://hackatime-badge.hackclub.com/U078W2HDDL7/Culminating_DigitalSystem">
 
 
 ```text
