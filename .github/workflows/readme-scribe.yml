@@ -23,8 +23,7 @@ jobs:
       - name: generate readme
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-          HACKATIME_API_KEY: ${{ secrets.HACKATIME_API_KEY }}
-          HACKATIME_URL: ${{ secrets.HACKATIME_URL }}
+          WAKATIME_API_KEY: ${{ secrets.WAKATIME_API_KEY }}
         run: ${{ steps.install.outputs.install-path }} -write README.md templates/README.md.tpl
 
       - uses: stefanzweifel/git-auto-commit-action@v4
