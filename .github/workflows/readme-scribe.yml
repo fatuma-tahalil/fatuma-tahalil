@@ -12,10 +12,13 @@ jobs:
     steps:
       - uses: actions/checkout@v3
 
-      - uses: actions-go/go-install@main
+      - name: Clear Go module cache
+        run: go clean -modcache
+        
+      - uses: actions-go/go-install@v1
         id: install
         with:
-          module: "github.com/fatuma-tahalil/markscribe@HEAD"
+          module: "github.com/fatuma-tahalil/markscribe@main"
 
       - name: generate readme
         env:
