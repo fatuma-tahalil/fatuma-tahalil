@@ -8,7 +8,7 @@ I forgot how to code :b
 
 
 ```text
-{{ wakatimeDoubleCategoryBar "💼 Projects:" wakatimeData.Projects 5 }}
+{{ wakatimeDoubleCategoryBar "💾 Languages:" wakatimeData.Languages "💼 Projects:" wakatimeData.Projects 5 }}
 
 Total: {{ wakatimeData.HumanReadableTotal }}
 ```
