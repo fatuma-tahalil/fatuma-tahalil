@@ -1,3 +1,5 @@
+
+
 name: Test Go Install
 
 on:
@@ -5,9 +7,13 @@ on:
 
 jobs:
   test-install:
+  
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v3
+
+      - name: Configure git to use public git protocol
+        run: git config --global url."git://github.com/".insteadOf "https://github.com/"
 
       - uses: actions-go/go-install@main
         with:
