@@ -1,30 +1,26 @@
-name: Update README
+name: Update README with Markscribe
 
 on:
-  push:
   schedule:
-    - cron: "0 */1 * * *"
+    - cron: "0 * * * *" # hourly updates
+  workflow_dispatch:
 
 jobs:
-  markscribe:
+  update-readme:
     runs-on: ubuntu-latest
 
     steps:
-      - uses: actions/checkout@master
-
-      - uses: charmbracelet/readme-scribe@master
-        env:
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+      - name: Update README using Markscribe
+        uses: markscribe/markscribe-action@v1
         with:
-          template: "templates/README.md.tpl"
-          writeTo: "README.md"
+          template: |
+            # Hey 👾  
+            I forgot how to code :b  
+            
+            <img src="https://github-readme-stats.hackclub.dev/api/wakatime?username=3788&api_domain=hackatime.hackclub.com&theme=dracula&custom_title=Hackatime+Stats&layout=compact&cache_seconds=0&langs_count=8">
 
-      - uses: stefanzweifel/git-auto-commit-action@v4
+            {{ wakatimeDoubleCategoryBar "💾 Languages:" wakatimeData.Languages "💼 Projects:" wakatimeData.Projects 5 }}
+          output: README.md
         env:
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-        with:
-          commit_message: Update generated README
-          branch: main
-          commit_user_name: readme-scribe 🤖
-          commit_user_email: actions@github.com
-          commit_author: readme-scribe 🤖 <actions@github.com>
+          MARKSCRIBE_GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          MARKSCRIBE_HACKATIME_API_KEY: ${{ secrets.HACKATIME_API_KEY }}
