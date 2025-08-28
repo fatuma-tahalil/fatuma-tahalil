@@ -7,7 +7,7 @@ I forgot how to code :b
 
 
 ```text
-💾 Languages:
+💾 Languages: Python, Java, JavaScript, TypeScript
 
 💼 Projects:
 
