@@ -2,7 +2,7 @@
 # Hey my name is Fatuma 👐
 
 👩🏾‍💻 I am currently a Dev Degree Intern at Shopify\
-📖 Studying Digital Technologies Software Development at York Universty, Toronto\
+📖 Studying Digital Technologies Software Development at York Universty, Toronto
 ### 📊 GitHub Stats
 ![Fatuma's GitHub stats](https://github-readme-stats.vercel.app/api?username=fatuma-tahalil&show_icons=true&theme=dracula&rank_icon=github)
 
